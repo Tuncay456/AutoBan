@@ -1,13 +1,15 @@
 import asyncio
+from time import time
 from pyrogram import Client as Bot, filters, idle
 from pyrogram.types import Message, User
 from config import API_ID, API_HASH, BOT_TOKEN
 
 bot = Bot(
-    ':ban:',
+    ':memory:',
     API_ID,
     API_HASH,
     bot_token=BOT_TOKEN,
+    sleep_threshold=1800
 )
 
 @bot.on_message(filters.command('start'))
@@ -19,10 +21,7 @@ async def start(bot, message):
 @bot.on_message(filters.new_chat_members)
 async def kick(bot, m: Message):
     try:
-        await bot.kick_chat_member(m.chat.id, m.from_user.id)
-        await asyncio.sleep(2)
-        await bot.unban_chat_member(m.chat.id, m.from_user.id)
-        return
+	await m.chat.kick_member(m.from_user.id, until_date=time() + 31)
     except Exception as e:
         print(e)
 
