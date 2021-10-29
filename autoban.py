@@ -21,7 +21,7 @@ async def start(bot, message):
 @bot.on_message(filters.new_chat_members)
 async def kick(bot, m: Message):
     try:
-	await m.chat.kick_member(m.from_user.id, until_date=time() + 31)
+        await m.chat.kick_member(m.from_user.id, until_date=time() + 31)
     except Exception as e:
         print(e)
 
