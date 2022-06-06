@@ -14,7 +14,7 @@ bot = Bot(
 
 @bot.on_message(filters.command('start'))
 async def start(bot, message):
-    text = 'Hey, I am Automated ban RoBot \n\n I Can Ban a Member After Joining The group. \n\n 📖 Note - Added Member will not be banned. \n\n ⚠️Warning- My use is for personal Groups with a approve permission of my Owner @Itzz_Axel11.\n\n ©️ @Vexana_Support'
+    text = 'Hey, I am Automated ban RoBot \n\n I Can Ban a Member After Joining The group. \n\n 📖 Note - Added Member will not be banned. \n\n ⚠️Warning- My use is for personal Groups with a approve permission of my Owner @nevarevladim.\n\n ©️ @nevarevladim'
     await message.reply(text, quote=True)
     return
 
